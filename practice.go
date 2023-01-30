@@ -36,12 +36,14 @@ func (e Event) Start() {
 }
 
 func main() {
-	message := NewMessage()
-	fmt.Printf("massege:%s\n", message)
-	greeter := NewGreeter(message)
-	fmt.Printf("greeter:%s:%#v:%T\n", greeter, greeter, greeter)
-	event := NewEvent(greeter)
-	fmt.Printf("event:%s:%#v:%T\n", event, event, event)
+	// message := NewMessage()
+	// fmt.Printf("massege:%s\n", message)
+	// greeter := NewGreeter(message)
+	// fmt.Printf("greeter:%s:%#v:%T\n", greeter, greeter, greeter)
+	// event := NewEvent(greeter)
+	// fmt.Printf("event:%s:%#v:%T\n", event, event, event)
 
-	event.Start()
+	e := InitializeEvent()
+
+	e.Start()
 }
