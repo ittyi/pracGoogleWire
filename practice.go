@@ -7,7 +7,6 @@ type Message string
 type Greeter struct {
 	// ... TBD
 	Message Message // <- adding a Message field
-	Messag  Message // <- adding a Message field
 }
 
 type Event struct {
@@ -23,8 +22,8 @@ func NewMessage() Message {
 	return Message("Hi there!")
 }
 
-func NewGreeter(m Message, l Message) Greeter {
-	return Greeter{Message: m, Messag: l}
+func NewGreeter(m Message) Greeter {
+	return Greeter{Message: m}
 }
 
 func NewEvent(g Greeter) Event {
@@ -39,9 +38,10 @@ func (e Event) Start() {
 func main() {
 	message := NewMessage()
 	fmt.Printf("massege:%s\n", message)
-	greeter := NewGreeter(message, message)
+	greeter := NewGreeter(message)
 	fmt.Printf("greeter:%s:%#v:%T\n", greeter, greeter, greeter)
-	// event := NewEvent(greeter)
+	event := NewEvent(greeter)
+	fmt.Printf("event:%s:%#v:%T\n", event, event, event)
 
-	// event.Start()
+	event.Start()
 }
